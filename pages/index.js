@@ -4,8 +4,12 @@ import Header from '../components/Header'
 import Main from '../components/Main'
 import Footer from '../components/Footer'
 
-export async function getServerSideProps() {
-  const res = await fetch('http://localhost:3000/api/resources')
+import { getBaseUrl } from '../utils/getBaseUrl'
+
+export async function getServerSideProps({ req }) {
+  const baseUrl = getBaseUrl(req)
+
+  const res = await fetch(baseUrl + '/api/resources')
   const json = await res.json()
 
   return {

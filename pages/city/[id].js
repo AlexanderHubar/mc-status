@@ -4,8 +4,12 @@ import Header from '../../components/Header'
 import Main from '../../components/Main'
 import Footer from '../../components/Footer'
 
+import { getBaseUrl } from '../../utils/getBaseUrl'
+
 export async function getServerSideProps({ params }) {
-  const res = await fetch('http://localhost:3000/api/resources')
+  const baseUrl = getBaseUrl(req)
+
+  const res = await fetch(baseUrl + '/api/resources')
   const json = await res.json()
 
   const restaurants = json.restaurants[params.id]
