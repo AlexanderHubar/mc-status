@@ -17,12 +17,12 @@ export async function getServerSideProps() {
 }
 
 export default function Home(props) {
-  const restaurants = props.restaurants[1]
+  const restaurants = props.restaurants[39]
 
   return (
     <div className="bg-gray-50 dark:bg-gray-900 min-h-screen">
       <Head>
-        <title>McDonald's 🍔 статус в Черкасах</title>
+        <title>McDonald's 🍔 статус Черкаси</title>
         <meta
           name="description"
           content="Сайт на якому можна переглянути чи працює McDonald's в Черкасах"
@@ -33,7 +33,7 @@ export default function Home(props) {
         />
       </Head>
 
-      <Header />
+      <Header title="McDonald's 🍔 статус в Черкасах" />
       <Main restaurants={restaurants} />
       <Footer />
     </div>
