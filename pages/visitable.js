@@ -6,7 +6,7 @@ import Footer from '../components/Footer'
 
 import { getBaseUrl } from '../utils/getBaseUrl'
 
-export async function getServerSideProps() {
+export async function getServerSideProps({ req }) {
   const baseUrl = getBaseUrl(req)
 
   const res = await fetch(baseUrl + '/api/resources')
