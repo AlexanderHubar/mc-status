@@ -1,6 +1,7 @@
 import fetch from 'node-fetch';
 
 const MC_URL = 'https://ukraine.mcdonalds.ua/ukr/mcmode/'
+
 const RESOURCE = {
   restaurants: 'restaurants',
   cities: 'cities'
