@@ -8,11 +8,15 @@ export function Restaurant({ restaurant }) {
     <img
       className="rounded-full h-6 w-6"
       src="https://www.freelogovectors.net/svg07/glovo-logo.svg"
+      title="Доставка Glovo працює"
+      alt="Логотип Glovo"
     />
   )
 
   const renderVisitable = isVisitable && (
-    <p className="text-2xl leading-none">🍔</p>
+    <p className="text-2xl leading-none" title="Заклад можна відвідати">
+      🍔
+    </p>
   )
 
   return (
