@@ -1,3 +1,5 @@
+import Image from 'next/image'
+
 import { isTruthy } from './helpers'
 
 export function Restaurant({ restaurant }) {
@@ -5,8 +7,10 @@ export function Restaurant({ restaurant }) {
   const isVisitable = isTruthy(restaurant.visitable)
 
   const renderDelivery = hasDelivery && (
-    <img
-      className="rounded-full h-6 w-6"
+    <Image
+      className="rounded-full"
+      width={24}
+      height={24}
       src="https://www.freelogovectors.net/svg07/glovo-logo.svg"
       title="Доставка Glovo працює"
       alt="Логотип Glovo"

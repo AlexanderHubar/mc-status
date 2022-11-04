@@ -20,15 +20,23 @@ export function Footer() {
         </div>
         <div className="flex flex-col space-y-4">
           <Link href="https://t.me/mc_donalds_che" legacyBehavior>
-            <a className="text-gray-500 hover:text-gray-600 transition">
+            <a
+              target="_blank"
+              className="text-gray-500 hover:text-gray-600 transition"
+            >
               Телеграм бот
             </a>
           </Link>
         </div>
       </div>
-      <p className="text-gray-500 hover:text-gray-600 transition">
-        Made with 🍔 by Alex
-      </p>
+      <Link href="https://www.instagram.com/alexhubar/" legacyBehavior>
+        <a
+          target="_blank"
+          className="text-gray-500 hover:text-gray-600 transition"
+        >
+          Made with 🍔 by Alex
+        </a>
+      </Link>
     </footer>
   )
 }
