@@ -2,9 +2,9 @@
 
 module.exports = {
   content: [
-    "./app/**/*.{js,ts,jsx,tsx}",
-    "./pages/**/*.{js,ts,jsx,tsx}",
-    "./components/**/*.{js,ts,jsx,tsx}",
+    './app/**/*.{js,ts,jsx,tsx}',
+    './pages/**/*.{js,ts,jsx,tsx}',
+    './components/**/*.{js,ts,jsx,tsx}',
   ],
   theme: {
     extend: {
@@ -19,9 +19,9 @@ module.exports = {
           600: '#444444',
           700: '#333333',
           800: '#222222',
-          900: '#111111'
-        }
-      }
+          900: '#111111',
+        },
+      },
     },
   },
   plugins: [
@@ -47,6 +47,6 @@ module.exports = {
           },
         },
       })
-    }
-    ]
+    },
+  ],
 }
