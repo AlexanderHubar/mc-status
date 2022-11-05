@@ -21,7 +21,10 @@ export async function getServerSideProps({ req }) {
 }
 
 export default function Home(props) {
-  const restaurants = props.restaurants[39]
+  const getCherkasyID = Object.values(props.cities).find(
+    (city) => city.title === 'Черкаси',
+  )?.item_id
+  const restaurants = props.restaurants[getCherkasyID]
 
   return (
     <div className="bg-gray-50 dark:bg-gray-900 min-h-screen">
