@@ -12,7 +12,7 @@ export function Header({ title }) {
           title="Посилання на благодійний фонд Повернись живим"
         >
           <svg
-            className="dark:fill-white"
+            className="dark:fill-white hover:scale-110 transition-all"
             role="img"
             aria-label="Логотип благодійного фонду Повернись живим"
             focusable={false}

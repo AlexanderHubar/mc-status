@@ -1,23 +1,21 @@
-import { getBaseUrl } from '../utils/getBaseUrl'
 import Head from 'next/head'
 import Header from '../components/Header'
 import Footer from '../components/Footer'
 import VisitableCard from '../components/VisitableCard'
 
-export async function getServerSideProps({ req }) {
-  const baseUrl = getBaseUrl(req)
-
-  const res = await fetch(baseUrl + '/api/resources')
+export async function getStaticProps() {
+  const res = await fetch(process.env.API_DOMAIN + '/api/resources')
   const json = await res.json()
 
   return {
     props: {
       cities: json.cities,
     },
+    revalidate: 10,
   }
 }
 
-export default function Home({ cities }) {
+export default function Visitable({ cities }) {
   return (
     <div className="bg-gray-50 dark:bg-gray-900 min-h-screen">
       <Head>
@@ -38,8 +36,9 @@ export default function Home({ cities }) {
           Список місць де Мак працює
         </h2>
         <p className="text-gray-600 dark:text-gray-400 mb-4">
-          Юхуу! Вам пощастило, якщо ви є в цьому списку. Натисни на назву міста,
-          щоб побачити детальну інформацію. 👇
+          Юхуу! Вам пощастило, якщо ви є в цьому списку.
+          <br />
+          Натисни на назву міста, щоб побачити детальну інформацію. 👇
         </p>
         <ul>
           {Object.keys(cities).map((key, index) => {

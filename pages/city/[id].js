@@ -4,12 +4,19 @@ import Header from '../../components/Header'
 import Main from '../../components/Main'
 import Footer from '../../components/Footer'
 
-import { getBaseUrl } from '../../utils/getBaseUrl'
+import { getAllCitiesIds } from '../../lib/cities'
 
-export async function getServerSideProps({ req, params }) {
-  const baseUrl = getBaseUrl(req)
+export async function getStaticPaths() {
+  const paths = await getAllCitiesIds()
 
-  const res = await fetch(baseUrl + '/api/resources')
+  return {
+    paths,
+    fallback: false,
+  }
+}
+
+export async function getStaticProps({ params }) {
+  const res = await fetch(process.env.API_DOMAIN + '/api/resources')
   const json = await res.json()
 
   const restaurants = json.restaurants[params.id]
@@ -25,6 +32,7 @@ export async function getServerSideProps({ req, params }) {
       restaurants: json.restaurants[params.id],
       city: json.cities[params.id],
     },
+    revalidate: 10,
   }
 }
 

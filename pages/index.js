@@ -4,12 +4,8 @@ import Header from '../components/Header'
 import Main from '../components/Main'
 import Footer from '../components/Footer'
 
-import { getBaseUrl } from '../utils/getBaseUrl'
-
-export async function getServerSideProps({ req }) {
-  const baseUrl = getBaseUrl(req)
-
-  const res = await fetch(baseUrl + '/api/resources')
+export async function getStaticProps() {
+  const res = await fetch(process.env.API_DOMAIN + '/api/resources')
   const json = await res.json()
 
   return {
@@ -17,6 +13,7 @@ export async function getServerSideProps({ req }) {
       restaurants: json.restaurants,
       cities: json.cities,
     },
+    revalidate: 10,
   }
 }
 
