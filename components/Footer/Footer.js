@@ -19,24 +19,25 @@ export function Footer() {
           </Link>
         </div>
         <div className="flex flex-col space-y-4">
-          <Link href="https://t.me/mc_donalds_che" legacyBehavior>
-            <a
-              target="_blank"
-              className="text-gray-500 hover:text-gray-600 transition"
-            >
-              Телеграм бот
-            </a>
-          </Link>
+          <a
+            className="text-gray-500 hover:text-gray-600 transition"
+            href="https://t.me/mc_donalds_che"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            Телеграм
+          </a>
         </div>
       </div>
-      <Link href="https://www.instagram.com/alexhubar/" legacyBehavior>
-        <a
-          target="_blank"
-          className="text-gray-500 hover:text-gray-600 transition"
-        >
-          Made with 🍔 by Alex
-        </a>
-      </Link>
+
+      <a
+        href="https://www.instagram.com/alexhubar/"
+        className="text-gray-500 hover:text-gray-600 transition"
+        target="_blank"
+        rel="noopener noreferrer"
+      >
+        Made with 🍔 by Alex
+      </a>
     </footer>
   )
 }
