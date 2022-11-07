@@ -16,7 +16,9 @@ const getResource = (str, resource) => {
     const sanitizedString = str
       .replace(resourceRegex, '')
       .replace("\\'", '')
+      .replace('Kiev', 'Kyiv')
       .slice(0, -2)
+
     return JSON.parse(sanitizedString)
   }
 
