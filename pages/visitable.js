@@ -1,10 +1,8 @@
-import Link from 'next/link'
+import { getBaseUrl } from '../utils/getBaseUrl'
 import Head from 'next/head'
-
 import Header from '../components/Header'
 import Footer from '../components/Footer'
-
-import { getBaseUrl } from '../utils/getBaseUrl'
+import VisitableCard from '../components/VisitableCard'
 
 export async function getServerSideProps({ req }) {
   const baseUrl = getBaseUrl(req)
@@ -14,14 +12,12 @@ export async function getServerSideProps({ req }) {
 
   return {
     props: {
-      restaurants: json.restaurants,
       cities: json.cities,
     },
   }
 }
 
-export default function Home({ cities, restaurants }) {
-  console.log(restaurants)
+export default function Home({ cities }) {
   return (
     <div className="bg-gray-50 dark:bg-gray-900 min-h-screen">
       <Head>
@@ -42,40 +38,15 @@ export default function Home({ cities, restaurants }) {
           Список місць де Мак працює
         </h2>
         <p className="text-gray-600 dark:text-gray-400 mb-4">
-          Юхуу! Вам пощастило, якщо ви є в цьому списку.
+          Юхуу! Вам пощастило, якщо ви є в цьому списку. Натисни на назву міста,
+          щоб побачити детальну інформацію. 👇
         </p>
         <ul>
           {Object.keys(cities).map((key, index) => {
             const city = cities[key]
 
             return (
-              <div
-                key={city.item_id}
-                className="flex flex-row items-baseline border-b border-gray-200 dark:border-gray-800 max-w-3xl w-full mt-8"
-              >
-                <p className="text-sm font-bold text-gray-400 dark:text-gray-600">
-                  {index + 1}
-                </p>
-                <div className="flex flex-col pl-3">
-                  <Link
-                    href={{
-                      pathname: '/city/[id]',
-                      query: { id: city.item_id },
-                    }}
-                    legacyBehavior
-                  >
-                    <a className="font-medium text-gray-900 dark:text-gray-100 truncate w-60 sm:w-96 md:w-full">
-                      {city.title}
-                    </a>
-                  </Link>
-                  <p
-                    className="text-gray-500 mb-4 truncate w-60 sm:w-96 md:w-full"
-                    color="gray.500"
-                  >
-                    {city.alias}
-                  </p>
-                </div>
-              </div>
+              <VisitableCard key={city.item_id} index={index} city={city} />
             )
           })}
         </ul>

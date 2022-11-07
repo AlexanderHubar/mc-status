@@ -35,7 +35,7 @@ export default function Home({ city, restaurants }) {
         <title>McDonald's 🍔 статус</title>
         <meta
           name="description"
-          content="Сайт на якому можна переглянути чи працює McDonald's у вашому місті"
+          content={`Сайт на якому можна переглянути чи працює McDonald's у ${city.title}`}
         />
         <link
           rel="icon"
